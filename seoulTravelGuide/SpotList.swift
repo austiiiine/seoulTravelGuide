@@ -12,7 +12,7 @@ struct SpotList: View {
       address: "首爾市麻浦區延南洞568-25",
       phone: "+82-2-332-8361",
       photos: ["grilledEel", "grilledEel", "grilledEel"],
-      category: "弘大"
+      category: "弘大美食"
     ),
     Spot(
       imageName: "grilledEel", // 要記得加一張示意圖
@@ -22,7 +22,7 @@ struct SpotList: View {
       address: "首爾市麻浦區延南洞568-25",
       phone: "+82-2-332-8361",
       photos: ["grilledEel", "grilledEel", "grilledEel"],
-      category: "明洞"
+      category: "明洞美食"
     ),
     Spot(
       imageName: "grilledEel", // 要記得加一張示意圖
@@ -32,7 +32,7 @@ struct SpotList: View {
       address: "首爾市麻浦區延南洞568-25",
       phone: "+82-2-332-8361",
       photos: ["grilledEel", "grilledEel", "grilledEel"],
-      category: "弘大"
+      category: "弘大美食"
     )
   ]
 
@@ -52,13 +52,13 @@ struct SpotList: View {
           }
         }
       }
-      .navigationTitle(category + "美食")
+      .navigationTitle(category)
     }
   }
 }
 
 
 #Preview {
-  SpotList(category: "弘大")
+  SpotList(category: "弘大美食")
 }
 

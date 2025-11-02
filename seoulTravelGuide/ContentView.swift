@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     let regions = ["弘大美食", "明洞美食", "漢南洞美食", "東大門美食", "聖水洞美食", "江南美食"]
-  let shopTypes = ["文創小物", "服裝配飾", "韓流周邊", "遊樂園", "美妝保養"]
+  let shopTypes = ["文創小物", "韓流周邊", "遊樂園"]
     var body: some View {
 
       TabView {
