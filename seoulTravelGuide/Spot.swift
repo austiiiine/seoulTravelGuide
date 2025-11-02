@@ -7,7 +7,7 @@ struct Spot: Identifiable {
   let description: String     // 簡介
   let openHours: String       // 營業時間
   let address: String         // 地址
-  let phone: String           // 電話
+  let transport: String       // 交通方式
   let photos: [String]        // 相片
   let category: String          // 類別
 }

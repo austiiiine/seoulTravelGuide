@@ -59,23 +59,24 @@ struct SpotDetail: View {
             VStack(alignment: .leading, spacing: 24) {
               DetailSection(icon: "clock", title: "營業時間", content: spot.openHours)
               DetailSection(icon: "mappin.and.ellipse", title: "地址", content: spot.address)
-              DetailSection(icon: "tram.fill", title: "交通方式", content: "地鐵2號線 \(spot.address)")
+              DetailSection(icon: "cablecar.fill", title: "交通方式", content: spot.transport)
               // 照片carousel
-              VStack(spacing: 12) {
-                DetailSection(icon: "photo", title: "相片集", content: nil)
-                ScrollView(.horizontal, showsIndicators: false) {
-                  HStack(spacing: 12) {
-                    ForEach(spot.photos, id: \.self) { photo in
-                      Image(photo)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 160, height: 120)
-                        .clipped()
-                        .cornerRadius(8)
-                    }
-                  }
-              }
+              VStack(alignment: .leading, spacing: 12) {
+                DetailSection(icon: "photo", title: "照片", content: nil)
 
+                TabView {
+                  ForEach(spot.photos, id: \.self) { photo in
+                    Image(photo)
+                      .resizable()
+                      .scaledToFill()
+                      .frame(height: 220)
+                      .cornerRadius(12)
+                      .clipped()
+                  }
+                }
+                .frame(height: 220)
+                .tabViewStyle(.page)
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
               }
               .padding(.bottom, 80)
             }
@@ -108,16 +109,17 @@ struct SpotDetail: View {
   }
 }
 
-//#Preview {
-//  let sampleSpot = Spot(
-//    imageName: "grilledEel", // 要記得加一張示意圖
-//    name: "鳳川鰻魚 풍천장어",
-//    description: "「風川碳烤鰻魚」是弘大延南洞的烤白燒鰻老店，開業經營超過20年，堅持只賣新鮮韓國國產白鰻，肉質鮮嫩彈性佳、幾乎無刺，值得一試！鰻魚由店員協助桌邊炭火烤製，表皮微微金黃酥脆，烤出自然鹽香，讓人一入口就秒懂它的魅力。",
-//    openHours: "11:30–22:20（15:30–16:30 為午後休息）",
-//    address: "首爾市麻浦區延南洞568-25",
-//    phone: "+82-2-332-8361",
-//    photos: ["grilledEel", "grilledEel", "grilledEel"]
-//  )
-//
-//  SpotDetail(spot: sampleSpot)
-//}
+#Preview {
+  let sampleSpot = Spot(
+    imageName: "madeby1",
+    name: "made by 延南店",
+    description: "made by 是弘大與延南洞著名的文具文創店，販售貼紙、明信片等，還提供 DIY 筆記本服務，是文具控必訪。",
+    openHours: "12:00-22:00",
+    address: "11, Yeonhui-ro, Mapo-gu, Seoul, 南韓",
+    transport: "地鐵2號線 弘大入口站 9號出口",
+    photos: ["madeby1", "madeby2", "madeby3"],
+    category: "文創小物"
+  )
+
+  SpotDetail(spot: sampleSpot)
+}
